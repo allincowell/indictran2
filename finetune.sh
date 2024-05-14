@@ -4,19 +4,19 @@
 
 
 echo `date`
-exp_dir=hi-en                             # path of the experiment directory
+exp_dir=$1                             # path of the experiment directory
 # model_arch=${2:-"transformer_base18L"}
 model_arch=${2:-"transformer_18_18"}    # model architecture (defaults to `transformer_18_18`)
 # pretrained_ckpt=./indic-en-exp/checkpoint_best.pt                      # path to the pretrained checkpoint `.pt` file
-# pretrained_ckpt=./data/jaygala/it2_ckpts/base_models/indic-indic/fairseq_model/model/checkpoint_best.pt
-pretrained_ckpt=./ckpt/indic-en-preprint/fairseq_model/model/checkpoint_best.pt
+pretrained_ckpt=./data/jaygala/it2_ckpts/base_models/indic-indic/fairseq_model/model/checkpoint_best.pt
+# pretrained_ckpt=./ckpt/indic-en-preprint/fairseq_model/model/checkpoint_best.pt
 
 CUDA_VISIBLE_DEVICES=1 fairseq-train $exp_dir/final_bin \
 --max-source-positions=256 \
 --max-target-positions=256 \
 --source-lang=SRC \
 --target-lang=TGT \
---max-update=10 \
+--max-update=2000000 \
 --save-interval-updates=1000 \
 --arch=$model_arch \
 --activation-fn gelu \

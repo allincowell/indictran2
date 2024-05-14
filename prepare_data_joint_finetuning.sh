@@ -4,11 +4,11 @@
 # `prepare_data_joint_training.sh` initially for training translation models using fairseq.
 # We primarily this script for training all our models.
 
-cd hi-en
-rm -rf bpe data final final_bin norm
-mkdir final_bin
-cp final_dict/* ./final_bin/.
-cd ..
+# cd ardhamagadhi-hindi
+# rm -rf bpe data final final_bin norm
+# mkdir final_bin
+# cp final_dict/* ./final_bin/.
+# cd ..
 
 echo `date`
 exp_dir=$1                                      # path to the experiment directory
